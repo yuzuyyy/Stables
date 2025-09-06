@@ -11,9 +11,9 @@ export default function Home() {
 
   const handleDetails = () => setIsDetailsOpen(!isDetailsOpen)
   return (
-    <main className="flex items-center justify-center py-[5rem] px-5">
+    <main className="flex items-start justify-center py-4  px-5 lg:h-screen">
 
-      <div className="container  flex flex-col items-center justify-center gap-1">
+      <div className="container  flex flex-col items-center justify-start gap-1">
 
         {/* top start */}
         <div className="relative bg-black w-full flex flex-col items-center p-10 pt-15 rounded-xl gap-5">
