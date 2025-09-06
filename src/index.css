@@ -22,15 +22,6 @@
     font-family: var(--font-inter);
     /* color: white; */
   }
-
-  .scrollbar-none::-webkit-scrollbar {
-    display: none;
-  }
-
-  .scrollbar-none {
-    -ms-overflow-style: none; /* IE/Edge */
-    scrollbar-width: none; /* Firefox */
-  }
 }
 
 @layer utilities {
