@@ -3,22 +3,30 @@ import { motion } from "motion/react";
 import { BrandBlock, DetailsBlock, IconBox, OffButton } from "../components";
 import { brandStats, details, iconBoxes } from "../constants";
 import { useState } from "react";
-import { off } from "../assets";
+import SendModal from "../components/SendModal";
+import ReceiveModal from "../components/ReceiveModal";
 
 export default function Home() {
+  const [isDetailsOpen, setIsDetailsOpen] = useState(true);
+  const [openModal, setOpenModal] = useState(null); // null | "send" | "receive"
 
-  const [isDetailsOpen, setIsDetailsOpen] = useState(true)
+  const handleDetails = () => setIsDetailsOpen(!isDetailsOpen);
 
-  const handleDetails = () => setIsDetailsOpen(!isDetailsOpen)
+  const handleIconClick = (text) => {
+    if (text.toLowerCase() === "send") {
+      setOpenModal("send");
+    } else if (text.toLowerCase() === "receive") {
+      setOpenModal("receive");
+    }
+  };
+
   return (
-    <main className="flex items-start justify-center py-4  px-1 lg:h-screen">
-
-      <div className="container  flex flex-col items-center justify-start gap-1">
-
+    <main className="flex items-start justify-center py-4 px-1 lg:h-screen">
+      <div className="container flex flex-col items-center justify-start gap-1">
         {/* top start */}
         <div className="relative bg-black w-full flex flex-col items-center p-10 pt-15 rounded-xl gap-5">
-
           <OffButton />
+
           {/* text-content start */}
           <div className="flex flex-col gap-5">
             <p className="text-center text-white font-bold">Your balance</p>
@@ -33,7 +41,9 @@ export default function Home() {
           {/* icon wrapper start */}
           <div className="flex items-center gap-3">
             {iconBoxes.map((icon, i) => (
-              <IconBox key={i} {...icon} />
+              <div key={i} onClick={() => handleIconClick(icon.text)}>
+                <IconBox {...icon} />
+              </div>
             ))}
           </div>
           {/* icon wrapper end */}
@@ -43,9 +53,12 @@ export default function Home() {
         {/* mid start */}
         <div className="w-full bg-black flex flex-col p-4 rounded-xl">
           {/* head start */}
-          <div onClick={handleDetails} className="w-full flex items-center justify-between cursor-pointer">
+          <div
+            onClick={handleDetails}
+            className="w-full flex items-center justify-between cursor-pointer"
+          >
             <p className="text-white text-sm">Recent activity</p>
-            <span className="">
+            <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"
@@ -58,8 +71,13 @@ export default function Home() {
             </span>
           </div>
           {/* head end */}
+
           {/* details start */}
-          <div className={`w-full bg-black pt-10  flex-col gap-2 ${isDetailsOpen ? "flex" : "hidden"}`}>
+          <div
+            className={`w-full bg-black pt-10 flex-col gap-2 ${
+              isDetailsOpen ? "flex" : "hidden"
+            }`}
+          >
             {details.map((detail, i) => (
               <DetailsBlock key={i} {...detail} />
             ))}
@@ -73,11 +91,13 @@ export default function Home() {
           {brandStats.map((brand, i) => (
             <BrandBlock key={i} {...brand} />
           ))}
-
-
         </div>
         {/* bottom end */}
       </div>
+
+      {/* MODALS */}
+      {openModal === "send" && <SendModal onClose={() => setOpenModal(null)} />}
+      {openModal === "receive" && <ReceiveModal onClose={() => setOpenModal(null)} />}
     </main>
   );
 }
