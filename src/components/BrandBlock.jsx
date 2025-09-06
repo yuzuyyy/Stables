@@ -17,8 +17,8 @@ export default function BrandBlock({
           <div className="flex h-full items-center justify-center bg-white rounded-full p-1">
             <img src={image} alt={name} className="size-7" />
           </div>
-          <div className="flex flex-col">
-            <p className="text-white text-xs capitalize group-hover:text-yellow-400">
+          <div className="flex flex-col gap-1">
+            <p className="text-white text-xs font-semibold capitalize group-hover:text-yellow">
               {name}
             </p>
             <p className="text-gray-400 uppercase text-xs">{currency}</p>

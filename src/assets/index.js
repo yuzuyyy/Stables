@@ -7,6 +7,8 @@ import bitcoin from '../assets/bitcoin.png'
 import eth from '../assets/eth.png'
 import sol from '../assets/sol.png'
 import xrp from '../assets/xrp.png'
+import sui from '../assets/sui.png'
+import near from '../assets/near.png'
 export {
     buy,
     swap,
@@ -16,5 +18,7 @@ export {
     eth,
     sol,
     xrp,
-    off
+    off,
+    sui,
+    near
 }

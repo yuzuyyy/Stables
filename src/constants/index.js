@@ -1,4 +1,4 @@
-import { bitcoin, buy, down, eth, sol, swap, up, xrp } from "../assets";
+import { bitcoin, buy, down, eth, near, sol, sui, swap, up, xrp } from "../assets";
 
 const iconBoxes = [
   {
@@ -68,6 +68,20 @@ const brandStats = [
     currency: "XRP",
     growth: "-1.4%",
     textColor: "red"
+  },
+  {
+    image: sui,
+    name: 'SUI',
+    currency: "SUI",
+    growth: "+4.8%",
+    
+  },
+  {
+    image: near,
+    name: 'NEAR',
+    currency: "NEAr",
+    growth: "+8%",
+    // textColor: "red"
   },
 ]
 

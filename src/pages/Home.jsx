@@ -69,7 +69,7 @@ export default function Home() {
         {/* mid end */}
 
         {/* bottom start */}
-        <div className="w-full  flex flex-col gap-1 rounded-xl">
+        <div className="w-full h-[240px] flex flex-col gap-1 rounded-xl overflow-auto scrollbar-hide">
           {brandStats.map((brand, i) => (
             <BrandBlock key={i} {...brand} />
           ))}
