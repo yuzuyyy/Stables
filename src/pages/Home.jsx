@@ -40,32 +40,32 @@ export default function Home() {
 
           {/* icon wrapper start */}
           <motion.div
-    className="flex items-center gap-3"
-    initial="hidden"
-    animate="show"
-    variants={{
-      hidden: {},
-      show: {
-        transition: {
-          staggerChildren: 0.1, // delay 0.1 detik antar icon
-        },
-      },
-    }}
-  >
-    {iconBoxes.map((icon, i) => (
-      <motion.div
-        key={i}
-        onClick={() => handleIconClick(icon.text)}
-        variants={{
-          hidden: { opacity: 0, scale: 0.3, x: 20 },
-          show: { opacity: 1, scale: 1, x: 0 },
-        }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-      >
-        <IconBox {...icon} />
-      </motion.div>
-    ))}
-  </motion.div>
+            className="flex items-center gap-3"
+            initial="hidden"
+            animate="show"
+            variants={{
+              hidden: {},
+              show: {
+                transition: {
+                  staggerChildren: 0.1, // delay 0.1 detik antar icon
+                },
+              },
+            }}
+          >
+            {iconBoxes.map((icon, i) => (
+              <motion.div
+                key={i}
+                onClick={() => handleIconClick(icon.text)}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.3, x: 20 },
+                  show: { opacity: 1, scale: 1, x: 0 },
+                }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              >
+                <IconBox {...icon} />
+              </motion.div>
+            ))}
+          </motion.div>
           {/* icon wrapper end */}
         </div>
         {/* top end */}
