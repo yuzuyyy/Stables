@@ -11,7 +11,7 @@ export default function Home() {
 
   const handleDetails = () => setIsDetailsOpen(!isDetailsOpen)
   return (
-    <main className="flex items-start justify-center py-4  px-5 lg:h-screen">
+    <main className="flex items-start justify-center py-4  px-1 lg:h-screen">
 
       <div className="container  flex flex-col items-center justify-start gap-1">
 
@@ -21,7 +21,7 @@ export default function Home() {
           <OffButton />
           {/* text-content start */}
           <div className="flex flex-col gap-5">
-            <p className="text-center text-white">Your balance</p>
+            <p className="text-center text-white font-bold">Your balance</p>
             <div className="flex items-end gap-1">
               <p className="text-5xl font-bold text-white">$</p>
               <p className="text-5xl tracking-tighter text-white">1.078.000</p>
