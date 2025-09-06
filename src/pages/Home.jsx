@@ -1,15 +1,24 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
-import { buy, down, swap, up } from "../assets";
-import { IconBox } from "../components";
-import { iconBoxes } from "../contants";
+import { BrandBlock, DetailsBlock, IconBox, OffButton } from "../components";
+import { brandStats, details, iconBoxes } from "../constants";
+import { useState } from "react";
+import { off } from "../assets";
 
 export default function Home() {
+
+  const [isDetailsOpen, setIsDetailsOpen] = useState(true)
+
+  const handleDetails = () => setIsDetailsOpen(!isDetailsOpen)
   return (
     <main className="flex items-center justify-center py-[5rem] px-5">
-      <div className="container bg-blue-400 flex flex-col items-center justify-center">
+
+      <div className="container  flex flex-col items-center justify-center gap-1">
+
         {/* top start */}
-        <div className="bg-black w-full flex flex-col items-center p-10 rounded-xl gap-5">
+        <div className="relative bg-black w-full flex flex-col items-center p-10 pt-15 rounded-xl gap-5">
+
+          <OffButton />
           {/* text-content start */}
           <div className="flex flex-col gap-5">
             <p className="text-center text-white">Your balance</p>
@@ -30,6 +39,44 @@ export default function Home() {
           {/* icon wrapper end */}
         </div>
         {/* top end */}
+
+        {/* mid start */}
+        <div className="w-full bg-black flex flex-col p-4 rounded-xl">
+          {/* head start */}
+          <div onClick={handleDetails} className="w-full flex items-center justify-between cursor-pointer">
+            <p className="text-white text-sm">Recent activity</p>
+            <span className="">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#5cff33"
+              >
+                <path d="M480-360 280-560h400L480-360Z" />
+              </svg>
+            </span>
+          </div>
+          {/* head end */}
+          {/* details start */}
+          <div className={`w-full bg-black pt-10  flex-col gap-2 ${isDetailsOpen ? "flex" : "hidden"}`}>
+            {details.map((detail, i) => (
+              <DetailsBlock key={i} {...detail} />
+            ))}
+          </div>
+          {/* details end */}
+        </div>
+        {/* mid end */}
+
+        {/* bottom start */}
+        <div className="w-full  flex flex-col gap-1 rounded-xl">
+          {brandStats.map((brand, i) => (
+            <BrandBlock key={i} {...brand} />
+          ))}
+
+
+        </div>
+        {/* bottom end */}
       </div>
     </main>
   );

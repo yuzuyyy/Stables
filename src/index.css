@@ -19,12 +19,13 @@
 @layer base {
   body {
     font-family: var(--font-inter);
+    /* color: white */
   }
 }
 
 @layer utilities {
     .container {
-        @apply w-full max-w-lg
+        @apply w-full max-w-[450px]
     }
   
 }
