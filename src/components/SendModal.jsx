@@ -46,13 +46,13 @@ export default function SendModal({ onClose }) {
         <div className="flex justify-end gap-2">
           <button
             onClick={onClose}
-            className="px-4 py-2 rounded-lg bg-gray-200 text-gray-800 hover:bg-gray-300 text-sm"
+            className="px-4 py-2 rounded-lg bg-gray-200 text-gray-800 hover:bg-gray-300 text-sm cursor-pointer"
           >
             Cancel
           </button>
           <button
             onClick={handleSend}
-            className="px-4 py-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 text-sm"
+            className="px-4 py-2 rounded-lg bg-blue text-white hover:bg-blue-600 text-sm cursor-pointer"
           >
             Send
           </button>

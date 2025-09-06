@@ -32,7 +32,7 @@ export default function ReceiveModal({ onClose }) {
             <p className="text-sm text-gray-700 truncate">{address}</p>
             <button
               onClick={handleCopy}
-              className="px-3 py-1 rounded-md bg-blue-500 text-white text-xs hover:bg-blue-600"
+              className="px-3 py-1 rounded-md bg-blue-500 text-white text-xs hover:bg-blue-600 cursor-pointer"
             >
               {copied ? "Copied" : "Copy"}
             </button>
@@ -42,7 +42,7 @@ export default function ReceiveModal({ onClose }) {
         <div className="flex justify-end">
           <button
             onClick={onClose}
-            className="px-4 py-2 rounded-lg bg-gray-200 text-gray-800 hover:bg-gray-300 text-sm"
+            className="px-4 py-2 rounded-lg bg-gray-200 text-gray-800 hover:bg-gray-300 text-sm cursor-pointer"
           >
             Close
           </button>
