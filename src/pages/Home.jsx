@@ -21,8 +21,8 @@ export default function Home() {
   };
 
   return (
-    <main className="flex items-start justify-center py-4 px-1 lg:h-screen">
-      <div className="container flex flex-col items-center justify-start gap-1">
+    <main className="flex items-start justify-center py-4 px-1 lg:min-h-screen ">
+      <div className="container flex flex-col items-center justify-start gap-1 ">
         {/* top start */}
         <div className="relative bg-black w-full flex flex-col items-center p-10 pt-15 rounded-xl gap-5">
           <OffButton />
@@ -58,25 +58,29 @@ export default function Home() {
             className="w-full flex items-center justify-between cursor-pointer"
           >
             <p className="text-white text-sm">Recent activity</p>
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 -960 960 960"
-                width="24px"
-                fill="#5cff33"
-              >
-                <path d="M480-360 280-560h400L480-360Z" />
-              </svg>
-            </span>
+            <span
+  className={`transition-all duration-500 ease-in-out ${
+    isDetailsOpen ? "rotate-180" : ""
+  }`}
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill={isDetailsOpen ? "#5cff33" : "#ffe433"}
+  >
+    <path d="M480-360 280-560h400L480-360Z" />
+  </svg>
+</span>
+
           </div>
           {/* head end */}
 
           {/* details start */}
           <div
-            className={`w-full bg-black pt-10 flex-col gap-2 ${
-              isDetailsOpen ? "flex" : "hidden"
-            }`}
+            className={`w-full bg-black pt-10 flex-col gap-2 ${isDetailsOpen ? "flex" : "hidden"
+              }`}
           >
             {details.map((detail, i) => (
               <DetailsBlock key={i} {...detail} />
