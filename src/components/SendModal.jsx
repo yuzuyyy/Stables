@@ -16,7 +16,7 @@ export default function SendModal({ onClose }) {
     return (
         <div className="fixed inset-0 bg-black/30 flex items-center justify-center z-50">
             {/* Border Gradient Wrapper */}
-            <div className="flex items-center justify-center w-fit max-w-[90%] p-1 bg-gradient-to-r from-yellow via-blue to-green rounded-xl">
+            <div className="flex items-center justify-center w-full max-w-[400px] p-1 bg-gradient-to-r from-yellow via-blue to-green rounded-xl">
                 <motion.div
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
