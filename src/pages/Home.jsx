@@ -59,34 +59,36 @@ export default function Home() {
           >
             <p className="text-white text-sm">Recent activity</p>
             <span
-  className={`transition-all duration-500 ease-in-out ${
-    isDetailsOpen ? "rotate-180" : ""
-  }`}
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    height="24px"
-    viewBox="0 -960 960 960"
-    width="24px"
-    fill={isDetailsOpen ? "#5cff33" : "#ffe433"}
-  >
-    <path d="M480-360 280-560h400L480-360Z" />
-  </svg>
-</span>
+              className={`transition-all duration-500 ease-in-out ${isDetailsOpen ? "rotate-180" : ""
+                }`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill={isDetailsOpen ? "#5cff33" : "#ffe433"}
+              >
+                <path d="M480-360 280-560h400L480-360Z" />
+              </svg>
+            </span>
 
           </div>
           {/* head end */}
 
           {/* details start */}
-          <div
-            className={`w-full bg-black pt-10 flex-col gap-2 ${isDetailsOpen ? "flex" : "hidden"
-              }`}
+          <motion.div
+            initial={false} // biar gak animasi pas pertama render
+            animate={isDetailsOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="w-full bg-black overflow-hidden flex flex-col gap-2 pt-2"
           >
             {details.map((detail, i) => (
               <DetailsBlock key={i} {...detail} />
             ))}
-          </div>
+          </motion.div>
           {/* details end */}
+
         </div>
         {/* mid end */}
 

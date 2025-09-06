@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
+import QRCode from "react-qr-code";
 
 export default function ReceiveModal({ onClose }) {
   const [copied, setCopied] = useState(false);
@@ -8,7 +9,6 @@ export default function ReceiveModal({ onClose }) {
   const handleCopy = () => {
     navigator.clipboard.writeText(walletAddress);
     setCopied(true);
-
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -20,14 +20,19 @@ export default function ReceiveModal({ onClose }) {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
-          className="bg-black rounded-lg p-6 w-full max-w-md shadow-lg flex flex-col gap-4 relative"
+          className="bg-black rounded-lg p-6 w-full max-w-md shadow-lg flex flex-col gap-4 relative items-center"
         >
           <h2 className="text-lg font-semibold text-white text-center">
             Receive USDC
           </h2>
 
+          {/* QR Code */}
+          <div className="bg-white p-2 rounded-lg">
+            <QRCode value={walletAddress} size={100} />
+          </div>
+
           {/* Address Box */}
-          <div className="flex items-center justify-between border border-gray-300 rounded-lg px-3 py-2 text-sm bg-black">
+          <div className="flex items-center justify-between border border-gray-300 rounded-lg px-3 py-2 text-sm bg-black w-full">
             <p className="text-white truncate">{walletAddress}</p>
             <button
               onClick={handleCopy}
@@ -37,7 +42,7 @@ export default function ReceiveModal({ onClose }) {
             </button>
           </div>
 
-          <div className="flex justify-end">
+          <div className="flex justify-end w-full">
             <button
               onClick={onClose}
               className="px-4 py-2 rounded-lg bg-gray-200 text-gray-800 hover:bg-gray-300 text-sm cursor-pointer"
