@@ -5,6 +5,7 @@ import { brandStats, details, iconBoxes } from "../constants";
 import { useState } from "react";
 import SendModal from "../components/SendModal";
 import ReceiveModal from "../components/ReceiveModal";
+import CounterAnimation from "../components/CounterAnimation";
 
 export default function Home() {
   const [isDetailsOpen, setIsDetailsOpen] = useState(true);
@@ -32,7 +33,9 @@ export default function Home() {
             <p className="text-center text-white font-bold">Your balance</p>
             <div className="flex items-end gap-1">
               <p className="text-5xl font-bold text-white">$</p>
-              <p className="text-5xl tracking-tighter text-white">1.078.000</p>
+              <p className="text-5xl tracking-tighter text-white">
+          <CounterAnimation from={0} to={1078000} duration={2} />
+        </p>
               <p className="uppercase text-[0.75rem] text-text-muted">usdc</p>
             </div>
           </div>

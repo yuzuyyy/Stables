@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { off } from "../assets";
 
-export default function OffButton({ link = "/" }) {
+export default function OffButton() {
   return (
     <Link
-      to={link}
+      to='/login'
       className="absolute right-2.5 top-4.5 flex flex-col items-center group cursor-pointer"
     >
       <img src={off} alt="Sign out icon" className="size-6" />
